@@ -18,6 +18,7 @@ model vendoer_setup {
   vendoerOfficeName String?
   vendorOfficeLocation String?
   vendoerPhone String
+  orgId Int
   activeStatus Boolean @default(true)
   createdBy Int
   createdAt   DateTime @default(now())
