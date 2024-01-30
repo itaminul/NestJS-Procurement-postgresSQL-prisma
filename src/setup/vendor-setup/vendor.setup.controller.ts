@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { VendorSetupService } from './vendor-setup.service';
+import { VendorSetupService } from './vendor.setup.service';
 
 @Controller('vendorsetup')
 export class VendorSetupController {
@@ -8,7 +8,7 @@ export class VendorSetupController {
     @Get()
     getVendoer() {
         try {
-            const result = this.vendorService.getVendor();
+            const result = 'vender';
             return result;
         } catch (error) {
             console.log("error", error);
