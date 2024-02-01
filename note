@@ -4,5 +4,19 @@ GRANT ALL PRIVILEGES ON DATABASE procurement_db TO admin;
 \c mydatabase
 CREATE USER aminul WITH PASSWORD '123456';
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin;
+GRANT ALL procurement_db public TO admin;
+
+GRANT ALL ON SCHEMA public TO admin;
+
+GRANT USAGE ON SCHEMA public TO aminul;
+GRANT ALL ON SCHEMA public TO aminul;
+
+
+GRANT ALL PRIVILEGES ON TABLE side_adzone TO jerry;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA TO aminul;
+
+GRANT USAGE,CREATE ON SCHEMA realtimechat_db TO aminul;
+
+
 
 

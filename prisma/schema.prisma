@@ -5,24 +5,11 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
-model vendoer_setup {
-  id Int @id @default(autoincrement())
-  vendorName String
-  vendoerDescription String?
-  vendorType Int
-  vendoerCountryType Int
-  vendoerCountry Int
-  vendoerOfficeName String?
-  vendorOfficeLocation String?
-  vendoerPhone String
-  orgId Int
-  activeStatus Boolean @default(true)
-  createdBy Int
-  createdAt   DateTime @default(now())
-  updatedBy Int
-  updatedAt   DateTime @updatedAt
-
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
 }
