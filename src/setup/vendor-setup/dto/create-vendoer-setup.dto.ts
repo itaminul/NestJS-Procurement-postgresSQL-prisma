@@ -3,9 +3,9 @@ import { IsEmpty, IsNotEmpty, IsNumber, IsString } from "class-validator"
 
 @Injectable()
 export class VendoerCreateDto {
-    @IsString()
+    @IsString({ message: 'Vendor should not be empty'})
     @IsNotEmpty()
-    vendorName: string;
+    readonly vendorName: string;
     @IsString()
     @IsEmpty()
     vendoerDescription:  string;

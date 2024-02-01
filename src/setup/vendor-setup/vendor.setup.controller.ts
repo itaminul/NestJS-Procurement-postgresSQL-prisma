@@ -17,9 +17,10 @@ export class VendorSetupController {
               };
 
         } catch (error) {
-            console.log("error", error);
+            return { success: false, message: error.message };
         }
     }
+
 
     @Post()
     async create(@Body() vendoerCreateDto: VendoerCreateDto) {
@@ -32,7 +33,7 @@ export class VendorSetupController {
               };
 
         } catch (error) {
-            console.log("error", error);
+            return { success: false, message: error.message };
         }
     }
     
