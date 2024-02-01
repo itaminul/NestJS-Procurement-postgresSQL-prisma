@@ -5,29 +5,29 @@ import { IsEmpty, IsNotEmpty, IsNumber, IsString } from "class-validator"
 export class VendoerCreateDto {
     @IsString()
     @IsNotEmpty()
-    vendorName: string
+    vendorName: string;
     @IsString()
     @IsEmpty()
-    vendoerDescription:  string
+    vendoerDescription:  string;
     @IsNumber()
     @IsNotEmpty()
-    vendorType: number
+    vendorType: number;
     @IsNumber()
     @IsNotEmpty()
-    vendoerCountryType: number
+    vendoerCountryType: number;
     @IsNumber()
     @IsNotEmpty()
-    vendoerCountry: number
+    vendoerCountry: number;
     @IsString()
     @IsEmpty()
-    vendoerOfficeName: string
+    vendoerOfficeName: string;
     @IsString()
     @IsEmpty()
-    vendorOfficeLocation: string
+    vendorOfficeLocation: string;
     @IsString()
     @IsEmpty()
-    vendoerPhone: string
+    vendoerPhone: string;
     @IsNumber()
     @IsNotEmpty()
-    orgId: number
+    orgId: number;
 }
