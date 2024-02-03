@@ -1,7 +1,8 @@
-import { Body, Injectable } from '@nestjs/common';
+import { Body, Injectable, Param } from '@nestjs/common';
 import { PrismaService } from 'src/db/prisma.service';
 import { VendoerCreateDto } from './dto/create-vendoer-setup.dto';
 import { Request } from 'express';
+import { VendoerEditDto } from './dto/edit-vendoer-setup.dto';
 
 @Injectable()
 export class VendorSetupService {
@@ -24,10 +25,30 @@ export class VendorSetupService {
          vendorOfficeLocation,
          vendorType,
          orgId,
-         createdBy:1,
-         updatedBy:1
+         createdBy:1
        }
     })
    }
+
+   async update(@Param('id') id: number, @Body() vendoerEditDto: VendoerEditDto) {
+      const { vendorName, vendoerDescription, vendoerCountry, vendoerCountryType,vendoerOfficeName,vendoerPhone,vendorOfficeLocation,vendorType,orgId} = vendoerEditDto;
+      await this.prisma.proVendorSetup.update({
+         where: {
+            id: Number(id)
+         },
+         data: {
+          vendorName, 
+          vendoerDescription,
+           vendoerCountry, 
+           vendoerCountryType,
+           vendoerOfficeName,
+           vendoerPhone,
+           vendorOfficeLocation,
+           vendorType,
+           orgId,
+           updatedBy:1
+         }
+      })
+     }
 
 }

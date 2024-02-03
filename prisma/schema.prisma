@@ -732,6 +732,7 @@ model ProVendorSetup {
   vendoerOfficeName String?
   vendorOfficeLocation String?
   vendoerPhone String
+  vendorStatus Int @default(1) //if 1 pending for check 2 for approve and 3 for cancel
   orgId Int
   activeStatus Boolean @default(true)
   createdBy Int?
@@ -739,3 +740,5 @@ model ProVendorSetup {
   updatedBy Int?
   updatedAt   DateTime? @updatedAt
 }
+
+// AtI@kyau#321
