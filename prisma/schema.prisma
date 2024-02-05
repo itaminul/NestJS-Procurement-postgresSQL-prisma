@@ -741,4 +741,21 @@ model ProVendorSetup {
   updatedAt   DateTime? @updatedAt
 }
 
+model ProClientSetup {
+  id Int @default(autoincrement()) @id
+  clientName String
+  clientDescription String?
+  clientLogi String?
+  clientOfficeName String?
+  clientOfficeLocation String?
+  clientPhone String
+  orgId Int
+  activeStatus Boolean @default(true)
+  createdBy Int?
+  createdAt   DateTime @default(now())
+  updatedBy Int?
+  updatedAt   DateTime? @updatedAt
+}
+
+
 // AtI@kyau#321
