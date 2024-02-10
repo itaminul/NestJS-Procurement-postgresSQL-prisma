@@ -721,16 +721,38 @@ model Users {
   updatedTime  String?
   updatedAt    DateTime?
 }
+model ProVendorType {
+  id Int @default(autoincrement()) @id
+  typeName String
+  typeDescription String?
+  orgId Int
+  activeStatus Boolean @default(true)
+  createdBy Int?
+  createdAt   DateTime @default(now())
+  updatedBy Int?
+  updatedAt   DateTime? @updatedAt
+}
+
+model ProVendorCountry {
+  id Int @default(autoincrement()) @id
+  countryName String
+  orgId Int
+  activeStatus Boolean @default(true)
+  createdBy Int?
+  createdAt   DateTime @default(now())
+  updatedBy Int?
+  updatedAt   DateTime? @updatedAt
+}
 
 model ProVendorSetup {
   id Int @default(autoincrement()) @id
   vendorName String
   vendoerDescription String?
   vendorType Int
-  vendoerCountryType Int
-  vendoerCountry Int
-  vendoerOfficeName String?
-  vendorOfficeLocation String?
+  vendorCountryType Int
+  vendorCountry Int
+  vendorOfficeName String
+  vendorOfficeLocation String
   vendoerPhone String
   vendorStatus Int @default(1) //if 1 pending for check 2 for approve and 3 for cancel
   orgId Int

@@ -12,6 +12,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor());
     const { httpAdapter } = app.get(HttpAdapterHost);
     app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter))
+    app.enableCors();
 
   await app.listen(APP_PORT, () => {
     console.info(`Server is listening on port ${APP_PORT}`);
