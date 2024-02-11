@@ -11,7 +11,7 @@ import { VendorSetupCountryService } from './vendor.setup.country.service';
 import { VendorCountryCreateDto } from './dto/create-vendoer-country.dto';
 import { VendorCountryEditDto } from './dto/edit-vendoer-country.dto';
 
-@Controller('vendorsetup')
+@Controller('vendor-country-setup')
 export class VendorSetupCountryController {
   constructor(
     private readonly vendorSetupContryService: VendorSetupCountryService,

@@ -21,7 +21,7 @@ export class VendorSetupController {
       const results = await this.vendorService.getAll();
       return {
         success: true,
-        status: HttpStatus.OK,
+        status: HttpStatus.CREATED,
         results,
       };
     } catch (error) {

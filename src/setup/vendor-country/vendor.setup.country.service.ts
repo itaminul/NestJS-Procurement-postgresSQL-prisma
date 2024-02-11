@@ -8,7 +8,7 @@ export class VendorSetupCountryService {
   constructor(public readonly prisma: PrismaService) {}
 
   async getAll() {
-    return await this.prisma.proVendorSetup.findMany();
+    return await this.prisma.proVendorCountry.findMany();
   }
 
   async create(@Body() vendoerCountryCreateDto: VendorCountryCreateDto) {
