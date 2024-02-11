@@ -777,7 +777,59 @@ model ProClientSetup {
   createdAt   DateTime @default(now())
   updatedBy Int?
   updatedAt   DateTime? @updatedAt
+  ProRequisitionParent ProRequisitionParent[]
 }
 
 
+
+model ProRequisitionParent {
+  id                       Int                       @id @default(autoincrement())
+  ProClientSetup ProClientSetup? @relation(fields: [clientId], references: [id])
+  clientId Int?
+  requisitionNo            String
+  requisitionType          Int?
+  requisitionFrom          Int?
+  requisitionTo            Int?
+  itemGroupId              Int?
+  itemId                   Int?
+  requisitionDate          DateTime
+  requisitionStatus        Int                       @default(0)
+  requisitionRemarks       String
+  requisitionAppCanRemarks String
+  requisitionBy            Int?
+  orgId                    Int?
+  activeStatus             Boolean                   @default(true)
+  createdDate              String?
+  createdTime              String?
+  createdBy                Int?
+  createdAt                DateTime                  @default(now())
+  updatedDate              String?
+  updatedTime              String?
+  updatedAt                DateTime?
+  updatedBy                Int?
+  ProRequisitionChild ProRequisitionChild[]
+}
+
+
+
+model ProRequisitionChild {
+  id                Int                @id @default(autoincrement())
+  ProRequisitionParent ProRequisitionParent? @relation(fields: [requisitionId], references: [id])
+  requisitionId     Int?
+  itemGroupId       Int?
+  itemId            Int?
+  uomId             Int?
+  qty               Int
+  price             Int?
+  orgId             Int?
+  activeStatus      Boolean            @default(true)
+  createdDate       String?
+  createdTime       String?
+  createdBy         Int?
+  createdAt         DateTime           @default(now())
+  updatedDate       String?
+  updatedTime       String?
+  updatedAt         DateTime?
+  updatedBy         Int?
+}
 // AtI@kyau#321
