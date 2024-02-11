@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common"
-import { IsEmpty, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
 
 @Injectable()
-export class VendoerCreateDto {
-  @IsString({ message: 'Vendor should not be empty' })
+export class VendorEditDto {
+  @IsString()
   @IsNotEmpty()
   readonly vendorName: string;
   @IsString()
@@ -14,13 +14,13 @@ export class VendoerCreateDto {
   vendorType: number;
   @IsNumber()
   @IsNotEmpty()
-  vendoerCountryType: number;
+  vendorCountryType: number;
   @IsNumber()
   @IsNotEmpty()
-  vendoerCountry: number;
+  vendorCountry: number;
   @IsString()
   @IsOptional()
-  vendoerOfficeName: string;
+  vendorOfficeName: string;
   @IsString()
   @IsOptional()
   vendorOfficeLocation: string;
