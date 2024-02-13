@@ -29,6 +29,20 @@ export class VendorSetupController {
     }
   }
 
+  @Get('/getVendorById/:id')
+  async getVendorById(@Param('id') id: number) {
+    try {
+      const results = await this.vendorService.getVendorById(id);
+      return {
+        success: true,
+        status: HttpStatus.OK,
+        results,
+      };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  }
+
   @Post()
   async create(@Body() vendoerCreateDto: VendorCreateDto) {
     try {
