@@ -11,6 +11,14 @@ export class VendorSetupService {
     return await this.prisma.proVendorSetup.findMany();
   }
 
+  async getVendorById(@Param('id') id: number) {
+    return await this.prisma.proVendorSetup.findUnique({
+      where: {
+        id: Number(id)
+      }
+    })
+  }
+
   async create(@Body() vendoerCreateDto: VendorCreateDto) {
     const {
       vendorName,
