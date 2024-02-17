@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { VendorSetupCountryService } from './vendor.setup.country.service';
 import { VendorSetupCountryController } from './vendor.setup.country.controller';
 @Module({
-  providers: [VendorSetupCountryService, PrismaService, ConfigService],
+  providers: [VendorSetupCountryService],
   controllers: [VendorSetupCountryController]
 })
 
