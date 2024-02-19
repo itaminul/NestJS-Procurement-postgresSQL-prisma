@@ -5,13 +5,13 @@ import { UpdateItemDto } from './dto/update.item.dto';
 
 @Injectable()
 export class ItemSetupService {
-  constructor(public readonly prisma: PrismaService){}
-   getAll() {
+  constructor(public readonly prisma: PrismaService) {}
+  getAll() {
     return this.prisma.invItemSetup.findMany();
   }
 
   create(@Body() dto: CreateItemDto) {
-    const { itemName, itemCode, itemDescription, itemGroupId,itemImage} = dto;
+    const { itemName, itemCode, itemDescription, itemGroupId, itemImage } = dto;
     return this.prisma.invItemSetup.create({
       data: {
         itemName,
@@ -22,8 +22,8 @@ export class ItemSetupService {
       },
     });
   }
-  update(@Param('id') id: number, dto: UpdateItemDto){
-    const { itemCode, itemDescription, itemGroupId, itemImage, itemName }= dto;
+  update(@Param('id') id: number, dto: UpdateItemDto) {
+    const { itemCode, itemDescription, itemGroupId, itemImage, itemName } = dto;
     return this.prisma.invItemSetup.update({
       where: {
         id: Number(id),
