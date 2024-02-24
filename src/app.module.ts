@@ -11,6 +11,7 @@ import { ItemSetupModule } from './procurements/item-setup/item-setup.module';
 import { PrismaModule } from './db/prisma.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { UploadService } from './file-upload/upload.service';
+import { UploadController } from './file-upload/upload.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,7 +26,7 @@ import { UploadService } from './file-upload/upload.service';
     VendorSetupCountryModule,
     ItemSetupModule,
   ],
-  controllers: [VendorSetupController, VendorSetupCountryController],
+  controllers: [VendorSetupController, VendorSetupCountryController, UploadController],
   providers: [
     VendorSetupService,
     PrismaService,
