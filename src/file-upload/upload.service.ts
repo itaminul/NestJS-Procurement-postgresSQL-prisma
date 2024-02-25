@@ -1,3 +1,4 @@
+
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { v4 as uuidv4 } from 'uuid';
 import * as sharp from 'sharp';
@@ -27,7 +28,6 @@ export class UploadService {
     return uploadedFiles;
   }
 
-  
   private async resizeAndSaveImage(
     file: Express.Multer.File,
     fileName: string,
@@ -42,4 +42,8 @@ export class UploadService {
     const fileExtension = originalname.split('.').pop();
     return `${uniqueSuffix}.${fileExtension}`;
   }
+
+
+
 }
+
