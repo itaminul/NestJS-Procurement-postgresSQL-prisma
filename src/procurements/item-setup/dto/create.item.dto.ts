@@ -1,57 +1,57 @@
 import { Injectable } from "@nestjs/common";
-import { IsDateString, IsEmpty, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsDateString, IsEmpty, IsNotEmpty, IsNumber, IsString, IsOptional } from "class-validator";
 
 @Injectable()
 export class CreateItemDto {
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   udId: string
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   itemCode: string
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   modelNo: string
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
   itemGroupId: number
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   itemName: string
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   itemDescription: string
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
   measurementtId: number
-  @IsEmpty()
+  @IsOptional()
   @IsNumber()
   costPrice: number
-  @IsEmpty()
+  @IsOptional()
   @IsNumber()
   salePrice: number
-  @IsEmpty()
+  @IsOptional()
   @IsDateString()
   manufactureDate: string
-  @IsEmpty()
+  @IsOptional()
   @IsDateString()
   expireDate: string
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   taxRate: number
-  @IsEmpty()
+  @IsOptional()
   @IsNumber()
   reorderLabel: number
-  @IsEmpty()
+  @IsOptional()
   @IsNumber()
   supplierId: number
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   itemImage: string
-  @IsEmpty()
+  @IsOptional()
   @IsString()
   remarks: string
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
   orgId: number
 }
