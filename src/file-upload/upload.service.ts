@@ -1,4 +1,5 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { v4 as uuidv4 } from 'uuid';
 import * as sharp from 'sharp';
 import * as fs from 'fs';
@@ -41,4 +42,8 @@ export class UploadService {
     const fileExtension = originalname.split('.').pop();
     return `${uniqueSuffix}.${fileExtension}`;
   }
+
+
+
 }
+

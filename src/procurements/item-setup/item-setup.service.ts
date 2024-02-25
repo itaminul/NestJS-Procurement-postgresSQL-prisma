@@ -10,15 +10,16 @@ export class ItemSetupService {
     return this.prisma.invItemSetup.findMany();
   }
 
-  create(@Body() dto: CreateItemDto) {
-    const { itemName, itemCode, itemDescription, itemGroupId, itemImage } = dto;
+  create(file,@Body() dto: CreateItemDto) {
+    const { itemName, itemCode, itemDescription, itemGroupId,measurementtId, itemImage } = dto;
     return this.prisma.invItemSetup.create({
       data: {
         itemName,
         itemCode,
         itemDescription,
         itemGroupId,
-        itemImage,
+        measurementtId,
+        itemImage: file.path,
       },
     });
   }

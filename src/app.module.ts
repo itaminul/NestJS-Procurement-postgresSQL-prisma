@@ -9,15 +9,33 @@ import { VendorSetupCountryController } from './setup/vendor-country/vendor.setu
 import { VendorSetupCountryService } from './setup/vendor-country/vendor.setup.country.service';
 import { ItemSetupModule } from './procurements/item-setup/item-setup.module';
 import { PrismaModule } from './db/prisma.module';
+import { MulterModule } from '@nestjs/platform-express';
+import { UploadService } from './file-upload/upload.service';
+import { UploadController } from './file-upload/upload.controller';
+import { ItemSetupController } from './procurements/item-setup/item-setup.controller';
+import { ItemSetupService } from './procurements/item-setup/item-setup.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    MulterModule.register({
+      dest: './uploads',
+    }),
+
     PrismaModule,
-    VendorSetupModule, VendorSetupCountryModule, ItemSetupModule
+    VendorSetupModule,
+    VendorSetupCountryModule,
+    ItemSetupModule,
   ],
-  controllers: [VendorSetupController, VendorSetupCountryController],
-  providers: [VendorSetupService, PrismaService, ConfigService, VendorSetupCountryService],
+  controllers: [VendorSetupController, VendorSetupCountryController, UploadController, ItemSetupController],
+  providers: [
+    VendorSetupService,
+    PrismaService,
+    ConfigService,
+    VendorSetupCountryService,
+    UploadService,
+    ItemSetupService
+  ],
 })
 export class AppModule {}

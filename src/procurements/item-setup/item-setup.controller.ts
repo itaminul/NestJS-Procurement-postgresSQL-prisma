@@ -1,8 +1,8 @@
-import { Body, Controller, Get, HttpStatus, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, Patch, Post, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { ItemSetupService } from './item-setup.service';
 import { CreateItemDto } from './dto/create.item.dto';
 import { UpdateItemDto } from './dto/update.item.dto';
-
+import { FileInterceptor } from '@nestjs/platform-express'
 @Controller('item-setup')
 export class ItemSetupController {
   constructor(public readonly itemSetupService: ItemSetupService) {};
@@ -21,9 +21,10 @@ export class ItemSetupController {
   }
 
   @Post()
-  async create(@Body() createItemDto: CreateItemDto) {
+  @UseInterceptors(FileInterceptor('file'))
+  async create(@UploadedFile() file: Express.Multer.File, @Body() createItemDto: CreateItemDto) {
     try {
-      const results = await this.itemSetupService.create(createItemDto);
+      const results = await this.itemSetupService.create(file,createItemDto);
       return {
         success: true,
         status: HttpStatus.OK,
