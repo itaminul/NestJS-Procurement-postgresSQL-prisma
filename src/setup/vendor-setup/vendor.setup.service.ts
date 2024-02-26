@@ -15,6 +15,19 @@ export class VendorSetupService {
     return await this.prisma.proVendorSetup.findUnique({
       where: {
         id: Number(id)
+      },
+      select: {
+        id: true,
+        vendoerDescription: true,
+        vendoerPhone: true,
+        vendorCountry: true,
+        vendorCountryType: true,
+        vendorName: true,
+        vendorOfficeLocation: true,
+        vendorOfficeName: true,
+        vendorStatus: true,
+        vendorType: true,
+        orgId: true,
       }
     })
   }
