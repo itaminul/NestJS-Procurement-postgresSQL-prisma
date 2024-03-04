@@ -14,6 +14,9 @@ import { UploadService } from './file-upload/upload.service';
 import { UploadController } from './file-upload/upload.controller';
 import { ItemSetupController } from './procurements/item-setup/item-setup.controller';
 import { ItemSetupService } from './procurements/item-setup/item-setup.service';
+import { PurchaseModule } from './purchase/purchase.module';
+import { PurchaseController } from './purchase/purchase.controller';
+import { PurchaseService } from './purchase/purchase.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -27,15 +30,17 @@ import { ItemSetupService } from './procurements/item-setup/item-setup.service';
     VendorSetupModule,
     VendorSetupCountryModule,
     ItemSetupModule,
+    PurchaseModule
   ],
-  controllers: [VendorSetupController, VendorSetupCountryController, UploadController, ItemSetupController],
+  controllers: [VendorSetupController, VendorSetupCountryController, UploadController, ItemSetupController, PurchaseController],
   providers: [
     VendorSetupService,
     PrismaService,
     ConfigService,
     VendorSetupCountryService,
     UploadService,
-    ItemSetupService
+    ItemSetupService,
+    PurchaseService
   ],
 })
 export class AppModule {}

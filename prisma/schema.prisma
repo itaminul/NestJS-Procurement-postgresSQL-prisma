@@ -832,3 +832,30 @@ model ProRequisitionChild {
   updatedAt         DateTime?
   updatedBy         Int?
 }
+
+
+
+model BO_PUR_ITEM{
+  puritem_id Int @id @default(autoincrement())
+  purinfo_id Int ?
+  purch_yymm Int?
+  proditm_id Int?
+  proditm_nm String?
+  reqitm_qty Int
+  puritem_qty Int?
+  unit_price Int?
+  vat_amount Int?
+  tax_amount Int?
+  totitm_amt Int?
+  warnty_dur Int?
+  vatamt_pct Int?
+  taxamt_pct Int?
+  wtydur_type String?
+  wrnty_info String?
+  active_status Boolean @default(true)
+  created_by Int?
+  company_id Int?
+  cbranch_id Int?
+  cobunit_id Int?
+  created_at DateTime @default(now())
+}
