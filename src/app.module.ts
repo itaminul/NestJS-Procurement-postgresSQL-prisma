@@ -29,16 +29,16 @@ import { EmailService } from './service/EmailService';
     }),
     MailerModule.forRoot({
       transport: {
-        host: 'mail.atilimited.net',
+        host: 'test.atilimited.net',
         port: 465,
         secure: true,
         auth: {
-          user: 'dev@atilimited.net',
-          pass: 'Ai%+5$t!0_Xy',
+          user: 'aminul',
+          pass: '111111',
         },
       },
       defaults: {
-        from: 'dev@atilimited.net',
+        from: 'aminul',
       },
     }),
 
