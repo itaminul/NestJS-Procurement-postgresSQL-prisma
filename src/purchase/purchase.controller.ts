@@ -1,9 +1,11 @@
-import { Controller, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Patch, Post } from '@nestjs/common';
 import { PurchaseService } from './purchase.service';
+import { CreatePurchaseItemDto } from './dto/create.purchase.item.dto';
 
 @Controller('purchase')
 export class PurchaseController {
     constructor(public readonly purchaseService: PurchaseService) {}
+    @Get()
     async getAll(){
         try {
             
@@ -18,10 +20,11 @@ export class PurchaseController {
           }
     }
 
-    async create() {
+    @Post()
+    async create(@Body() dto: CreatePurchaseItemDto) {
         try {
             
-            const results = await this.purchaseService.create();
+            const results = await this.purchaseService.create(dto);
             return {
               success: true,
               status: HttpStatus.OK,
@@ -31,7 +34,7 @@ export class PurchaseController {
             return { success: false, message: error.message };
           }
     }
-    
+    @Patch('/:id')
     async updatePurchase() {
         try {
             
