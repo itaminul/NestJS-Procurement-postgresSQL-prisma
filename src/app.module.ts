@@ -17,6 +17,8 @@ import { ItemSetupService } from './procurements/item-setup/item-setup.service';
 import { PurchaseModule } from './purchase/purchase.module';
 import { PurchaseController } from './purchase/purchase.controller';
 import { PurchaseService } from './purchase/purchase.service';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { EmailService } from './service/EmailService';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -24,6 +26,20 @@ import { PurchaseService } from './purchase/purchase.service';
     }),
     MulterModule.register({
       dest: './uploads',
+    }),
+    MailerModule.forRoot({
+      transport: {
+        host: 'mail.atilimited.net',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'dev@atilimited.net',
+          pass: 'Ai%+5$t!0_Xy',
+        },
+      },
+      defaults: {
+        from: 'dev@atilimited.net',
+      },
     }),
 
     PrismaModule,
@@ -40,7 +56,8 @@ import { PurchaseService } from './purchase/purchase.service';
     VendorSetupCountryService,
     UploadService,
     ItemSetupService,
-    PurchaseService
+    PurchaseService,
+    EmailService
   ],
 })
 export class AppModule {}
