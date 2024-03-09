@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 @Injectable()
 export class UpdatePurchaseItemDto{
@@ -48,4 +48,8 @@ export class UpdatePurchaseItemDto{
     @IsOptional()
     @IsString()
     wrnty_info
+    @IsNotEmpty()
+    @IsBoolean()
+    active_status
+
 }
