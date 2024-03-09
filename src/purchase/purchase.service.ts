@@ -1,7 +1,7 @@
 import { Body, Injectable, Param } from '@nestjs/common';
 import { PrismaService } from 'src/db/prisma.service';
 import { CreatePurchaseItemDto } from './dto/create.purchase.item.dto';
-import { UpdatePurchaseItemDto } from './dto/upate.purchase.item.dto';
+import { UpdatePurchaseItemDto } from './dto/update.purchase.item.dto';
 
 @Injectable()
 export class PurchaseService {

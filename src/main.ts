@@ -7,7 +7,7 @@ import { TransformInterceptor } from './exception/transform-nterceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const APP_PORT = process.env.APP_PORT || 8082;
+  const APP_PORT = process.env.APP_PORT || 9001;
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
     const { httpAdapter } = app.get(HttpAdapterHost);
